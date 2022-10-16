@@ -10,6 +10,7 @@ dependencies:
   get: 4.6.5
   google_fonts: 3.0.1
   percent_indicator: 4.2.2
+  url_launcher: 6.1.6
   flutter: 
     sdk: flutter
 
@@ -19,6 +20,7 @@ dev_dependencies:
     sdk: flutter
 
 flutter: 
-  uses-material-design: true
-  assets:
+  assets: 
     - Assets/images/
+  uses-material-design: true
+

@@ -11,14 +11,6 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   title: Text(
-        //     'Bayu Pasifik',
-        //     style: GoogleFonts.marckScript(color: Colors.black),
-        //   ),
-        //   elevation: 0,
-        //   backgroundColor: Colors.grey[200],
-        // ),
         body: SafeArea(
       child: DefaultTabController(
         length: 2,
@@ -54,22 +46,12 @@ class HomeView extends GetView<HomeController> {
                     const SizedBox(
                       height: 6,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Flutter Developer | ",
-                          style: GoogleFonts.notoSerif(
-                              fontSize: 14,
-                              // fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        ),
-                        Text(
-                          "Website Developer",
-                          style: GoogleFonts.notoSerif(
-                              fontSize: 14, color: Colors.white),
-                        ),
-                      ],
+                    Text(
+                      "Flutter Developer",
+                      style: GoogleFonts.notoSerif(
+                          fontSize: 14,
+                          // fontWeight: FontWeight.bold,
+                          color: Colors.white),
                     ),
                     const SizedBox(
                       height: 3,
@@ -109,28 +91,50 @@ class HomeView extends GetView<HomeController> {
             Expanded(
                 child: TabBarView(
               children: [
+                // ! tabs about me
                 ListView(
                   padding: const EdgeInsets.all(8),
                   children: [
                     Text(
                       "Hey There ,",
                       style: GoogleFonts.playfairDisplay(
-                          fontSize: 26, fontWeight: FontWeight.bold),
+                          fontSize: 22, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       "I'm Bayu Pasifik",
                       style: GoogleFonts.playfairDisplay(
-                          fontSize: 26, fontWeight: FontWeight.bold),
+                          fontSize: 22, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      "i'm currently studying for bachelor degree in Computers and Science field",
+                      "i'm currently studying for bachelor degree in Computers and Science field, and My recent activities are studying and doing my assignments, even though I'm busy with assignments but I don't forget to take the time to improve my skills ",
                       style: GoogleFonts.notoSerif(),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "You can contact me on",
+                      style: GoogleFonts.playfairDisplay(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    Wrap(
+                      children: [
+                        Sosmed(
+                          assetName: 'Assets/images/facebook.png',
+                          ontap: controller.facebook(),
+                        ),
+                        Sosmed(
+                          assetName: 'Assets/images/instagram.png',
+                          ontap: controller.instagram(),
+                        ),
+                      ],
                     )
                   ],
                 ),
+                // ! tabs skills
                 ListView(
                   padding: const EdgeInsets.all(8),
                   children: [
@@ -422,5 +426,31 @@ class HomeView extends GetView<HomeController> {
         ),
       ),
     ));
+  }
+}
+
+class Sosmed extends GetView<HomeController> {
+  final String assetName;
+  final Future ontap;
+  const Sosmed({
+    required this.assetName,
+    required this.ontap,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        ontap;
+        print("tapped");
+      },
+      child: Container(
+        width: 30,
+        height: 30,
+        decoration:
+            BoxDecoration(image: DecorationImage(image: AssetImage(assetName))),
+      ),
+    );
   }
 }
