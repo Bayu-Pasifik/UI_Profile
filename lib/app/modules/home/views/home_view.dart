@@ -116,19 +116,66 @@ class HomeView extends GetView<HomeController> {
                       height: 10,
                     ),
                     Text(
-                      "You can contact me on",
+                      "You can Find me on",
                       style: GoogleFonts.playfairDisplay(
                           fontSize: 18, fontWeight: FontWeight.bold),
                     ),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Wrap(
+                      spacing: 8,
                       children: [
-                        Sosmed(
-                          assetName: 'Assets/images/facebook.png',
-                          ontap: controller.facebook(),
+                        GestureDetector(
+                          onTap: () => controller.facebook(),
+                          child: const Sosmed(
+                            assetName: 'Assets/images/facebook.png',
+                          ),
                         ),
-                        Sosmed(
-                          assetName: 'Assets/images/instagram.png',
-                          ontap: controller.instagram(),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        GestureDetector(
+                          onTap: () => controller.instagram(),
+                          child: const Sosmed(
+                            assetName: 'Assets/images/instagram.png',
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        GestureDetector(
+                          onTap: () => controller.discord(),
+                          child: const Sosmed(
+                            assetName: 'Assets/images/discord.png',
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        GestureDetector(
+                          onTap: () => controller.telegram(),
+                          child: const Sosmed(
+                            assetName: 'Assets/images/telegram.png',
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        GestureDetector(
+                          onTap: () => controller.whatsApp(),
+                          child: const Sosmed(
+                            assetName: 'Assets/images/whatsapp.png',
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        GestureDetector(
+                          onTap: () => controller.github(),
+                          child: const Sosmed(
+                            assetName: 'Assets/images/github-sign.png',
+                          ),
                         ),
                       ],
                     )
@@ -431,26 +478,19 @@ class HomeView extends GetView<HomeController> {
 
 class Sosmed extends GetView<HomeController> {
   final String assetName;
-  final Future ontap;
+
   const Sosmed({
     required this.assetName,
-    required this.ontap,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        ontap;
-        print("tapped");
-      },
-      child: Container(
-        width: 30,
-        height: 30,
-        decoration:
-            BoxDecoration(image: DecorationImage(image: AssetImage(assetName))),
-      ),
+    return Container(
+      width: 30,
+      height: 30,
+      decoration:
+          BoxDecoration(image: DecorationImage(image: AssetImage(assetName))),
     );
   }
 }
