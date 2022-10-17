@@ -10,16 +10,15 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-      child: DefaultTabController(
+    return SafeArea(
+      child: Scaffold(
+          body: DefaultTabController(
         length: 2,
         child: Column(
           children: [
             Container(
               height: Get.mediaQuery.size.height / 2,
               width: Get.mediaQuery.size.width,
-              // color: Colors.amber,
               decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage(
@@ -46,12 +45,22 @@ class HomeView extends GetView<HomeController> {
                     const SizedBox(
                       height: 6,
                     ),
-                    Text(
-                      "Flutter Developer",
-                      style: GoogleFonts.notoSerif(
-                          fontSize: 14,
-                          // fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.work,
+                          color: Colors.white,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "Flutter Developer",
+                          style: GoogleFonts.notoSerif(
+                              fontSize: 14, color: Colors.white),
+                        ),
+                      ],
                     ),
                     const SizedBox(
                       height: 3,
@@ -471,8 +480,8 @@ class HomeView extends GetView<HomeController> {
             ))
           ],
         ),
-      ),
-    ));
+      )),
+    );
   }
 }
 

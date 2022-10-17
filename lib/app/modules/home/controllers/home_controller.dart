@@ -8,7 +8,6 @@ class HomeController extends GetxController {
   final Uri _urlDiscord =
       Uri.parse('https://discordapp.com/users/565549988541759534/');
   final Uri _urlTelegram = Uri.parse('https://telegram.me/+6281358995401');
-  // Uri.parse('https://web.telegram.org/k/#@Shin_kagami');
   final Uri _urlWhatsApp2 =
       Uri.parse('https://api.whatsapp.com/send?phone=6281358995401&text=Hello');
   final Uri _urlgithub = Uri.parse('https://github.com/Bayu-Pasifik');
